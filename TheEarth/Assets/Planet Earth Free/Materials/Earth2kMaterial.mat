@@ -12,7 +12,11 @@ Material:
   m_ShaderKeywords: _EMISSION _NORMALMAP
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
+<<<<<<< HEAD
   m_DoubleSidedGI: 1
+=======
+  m_DoubleSidedGI: 0
+>>>>>>> 211d0f5df91cb3b1e66e01f3cd530c40570c55e1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
@@ -61,7 +65,11 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
+<<<<<<< HEAD
     - _Glossiness: 0.18
+=======
+    - _Glossiness: 0.081
+>>>>>>> 211d0f5df91cb3b1e66e01f3cd530c40570c55e1
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
