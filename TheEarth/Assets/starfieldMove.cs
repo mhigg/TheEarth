@@ -11,9 +11,11 @@ public class starfieldMove : MonoBehaviour
 
     void Update()
     {
-        Target += Time.deltaTime / 125;
-
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, transform.position.y, Target), 0.05f);
+        // transformを取得
+        Transform myTransform = this.transform;
+    
+        // ワールド座標基準で、現在の回転量へ加算する
+        myTransform.Rotate(0.0f, 0.0f, 0.01f, Space.World);
 
     }
 }

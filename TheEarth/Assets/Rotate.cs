@@ -25,6 +25,15 @@ public class Rotate : MonoBehaviour
         {
             speed.y += 0.1f;
         }
+        
+        if (Input.GetKey(KeyCode.Delete))
+        {
+            speed.y += 0.5f;
+        }
+        else if (speed.y > 0.0f)
+        {
+            speed.y = 0.0f;
+        }
         // ワールド座標基準で、現在の回転量へ加算する
         myTransform.Rotate(0.0f, speed.y, 0.0f, Space.World);
     }
