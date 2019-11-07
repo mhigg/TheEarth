@@ -24,17 +24,17 @@ public class TimeRote : MonoBehaviour
     {
         time = 60 * 60;    // 60fps * 60秒分
         earthTimer = GameObject.Find("Earth").GetComponent<RectTransform>();
-        pos = new Vector3(560, 715, 0);
+        pos = new Vector3(150, 1030, 0);
         earthTimer.localPosition = pos;
         pi = 3.141592654f;
-        length = 70;
+        length = 200;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        lange = Mathf.Sqrt(Mathf.Pow((pos.x-570), 2) + Mathf.Pow((pos.y-680), 2));
+        lange = Mathf.Sqrt(Mathf.Pow((pos.x- Sun.transform.position.x), 2) + Mathf.Pow((pos.y- Sun.transform.position.y), 2));
         vec = new Vector2(earthTimer.position.x - /*575*/Sun.transform.position.x, earthTimer.position.y - /*660*/Sun.transform.position.y);
         earthTimer.transform.position = pos;
         theta = Mathf.Atan2(vec.y, vec.x);
