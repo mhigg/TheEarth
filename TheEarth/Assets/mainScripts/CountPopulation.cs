@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CountPopulation : MonoBehaviour
 {
     public GameObject popObject = null;
-    public int population;                     // 人口
+    public static int population;                     // 人口
 
     // Start is called before the first frame update
     void Start()
