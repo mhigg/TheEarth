@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotate : MonoBehaviour
+public class EarthRotate : MonoBehaviour
 {
     Vector3 speed;
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class Rotate : MonoBehaviour
         }
         else if(speed.y < 0)
         {
-            speed.y += 0.1f;
+            speed.y += 0.2f;
         }
         
         if (Input.GetKey(KeyCode.Delete))
@@ -35,6 +35,7 @@ public class Rotate : MonoBehaviour
             speed.y = 0.0f;
         }
         // ワールド座標基準で、現在の回転量へ加算する
+        
         myTransform.Rotate(0.0f, speed.y, 0.0f, Space.World);
     }
 }
