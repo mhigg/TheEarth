@@ -19,7 +19,7 @@ public class CountPopulation : MonoBehaviour
     {
         //int bilTop = population / 10000;
         //int bilBottom = population - bilTop * 10000;
-
+        
         Text popText = popObject.GetComponent<Text>();
         popText.text = population.ToString() /*bilTop.ToString() + "億" + bilBottom.ToString()*/;
 
