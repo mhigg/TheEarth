@@ -13,7 +13,7 @@ public class TimeRote : MonoBehaviour
     public RectTransform earthTimer;    // 秒針の画像
 
     /* private */
-    private float pi;                  // 円周率
+    //private float pi;                  // 円周率
     private float theta;                // ∠Θ
     private Vector2 vec;                // ﾀｲﾏｰ軸から秒針のﾍﾞｸﾄﾙ
     private float length;
@@ -24,10 +24,10 @@ public class TimeRote : MonoBehaviour
     {
         time = 60 * 60;    // 60fps * 60秒分
         earthTimer = GameObject.Find("Earth").GetComponent<RectTransform>();
-        pos = new Vector3(150, 1030, 0);
+        pos = this.gameObject.transform.position/*new Vector3(150, 1030, 0)*/;
         earthTimer.localPosition = pos;
-        pi = 3.141592654f;
-        length = 200;
+        //pi = 3.141592654f;
+        length = 100;
 
     }
 
@@ -39,19 +39,19 @@ public class TimeRote : MonoBehaviour
         earthTimer.transform.position = pos;
         theta = Mathf.Atan2(vec.y, vec.x);
 
-        float vx = 0.2f * Mathf.Cos(theta - pi / 2);//速度を分配(X方向)
-        float vy = 0.2f * Mathf.Sin(theta - pi / 2);//速度を分配(Y方向)
+        float vx = 1.0f / 16.0f * Mathf.Cos(theta - Mathf.PI / 2);//速度を分配(X方向)
+        float vy = 1.0f / 16.0f * Mathf.Sin(theta - Mathf.PI / 2);//速度を分配(Y方向)
 
         if (time <= 0)
         {
             // ゲーム終了・シーンを渡す
         }
 
-        if (lange > length)
-        {
-            Vector3 posVec = pos / lange;
-            pos = new Vector3(Sun.transform.position.x/*560*/, Sun.transform.position.y/*660*/, 0) + posVec * length;
-        }
+        //if (lange > length)
+        //{
+        //    Vector3 posVec = pos / lange;
+        //    pos = new Vector3(Sun.transform.position.x/*560*/, Sun.transform.position.y/*660*/, 0) + posVec * length;
+        //}
 
         pos.x -= vx;
         pos.y -= vy;
