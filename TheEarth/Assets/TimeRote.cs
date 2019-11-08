@@ -24,7 +24,7 @@ public class TimeRote : MonoBehaviour
     {
         time = 60 * 60;    // 60fps * 60秒分
         earthTimer = GameObject.Find("Earth").GetComponent<RectTransform>();
-        pos = new Vector3(150, 1030, 0);
+        pos = new Vector3(earthTimer.transform.position.x, earthTimer.transform.position.y, 0);
         earthTimer.localPosition = pos;
         pi = 3.141592654f;
         length = 200;
