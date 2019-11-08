@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class IntroMove : MonoBehaviour
 {
-    private int moveCnt;
+    private int moveCnt;    // 経過時間(ﾌﾚｰﾑ)
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +16,10 @@ public class IntroMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // 85秒経過または左ｸﾘｯｸ
         if((moveCnt > (60*85))||(Input.GetMouseButtonDown(0)))
         {
-            SceneManager.LoadScene("mainScene");
+            SceneManager.LoadScene("mainScene");    // ｹﾞｰﾑｼｰﾝに移行
         }
         moveCnt++;
     }
