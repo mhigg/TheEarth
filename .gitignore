@@ -34,3 +34,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+TheEarth/Assets/Movie.meta
+*.mp4

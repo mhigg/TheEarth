@@ -6,23 +6,50 @@ using UnityEngine.UI;
 public class CountPopulation : MonoBehaviour
 {
     public GameObject popObject = null;
-    public static int population;                     // 人口
+    public static int population = 7700000;
+    public int randomizeRange = 500;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        population = 770000;
-    }
-
+    private int enviromentLevel = 0;    //環境が生物に厳しいほど低く、優しいほど高い、人口の計算し方に影響を与える
+    
     // Update is called once per frame
     void Update()
     {
-        //int bilTop = population / 10000;
-        //int bilBottom = population - bilTop * 10000;
-        
         Text popText = popObject.GetComponent<Text>();
-        popText.text = population.ToString() /*bilTop.ToString() + "億" + bilBottom.ToString()*/;
+        popText.text = (population / 1000000).ToString() +  "," + 
+            ((population / 1000) % 1000).ToString() + "," + 
+            (population % 1000).ToString();
 
-        population--;
+        int decreaseRange = randomizeRange;
+        int increaseRange = randomizeRange;
+
+        if (enviromentLevel < 0) decreaseRange *= -enviromentLevel;
+        if (enviromentLevel > 0) increaseRange *= enviromentLevel;
+
+        int populationManipulate = Random.Range(-decreaseRange, increaseRange);
+        population += populationManipulate;
+    }
+
+    //環境レベルを変わる
+    public void ManipulateEnviromentLevel(int newLevel)
+    {
+        enviromentLevel = newLevel;
+    }
+
+    //人口を無理やり変える
+    public void ManipulatePopulation(int newPopulation)
+    {
+        population = newPopulation;
+    }
+
+    //人口を直接減らす
+    public void DecreasePopulation(int value)
+    {
+        population -= value;
+    }
+
+    //人口を直接増やす
+    public void IncreasePopulation(int value)
+    {
+        population += value;
     }
 }

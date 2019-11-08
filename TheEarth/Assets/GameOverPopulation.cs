@@ -16,6 +16,6 @@ public class GameOverPopulation : MonoBehaviour
     void Update()
     {
         Text popText = popObject.GetComponent<Text>();
-        popText.text = CountPopulation.population.ToString() /*bilTop.ToString() + "億" + bilBottom.ToString()*/;
+        popText.text = CountPopulation.population.ToString();
     }
 }
