@@ -8,7 +8,7 @@ public class TitleButton : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.LoadScene("mainScene");
+        SceneManager.LoadScene("IntroScene");
         Debug.Log("押された!");  // ログを出力
     }
     //// Start is called before the first frame update
