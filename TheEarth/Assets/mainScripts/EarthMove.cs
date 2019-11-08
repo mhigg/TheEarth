@@ -30,9 +30,9 @@ public class EarthMove : MonoBehaviour
         }
         if (!EndFlag)
         {
-            x = radius * Mathf.Sin((frame / 10.0f) * (Mathf.PI / 180));
+            x = radius * Mathf.Sin((-Time.frameCount / 10.0f) * (Mathf.PI / 180));
             y = 0;
-            z = radius * Mathf.Cos((frame / 10.0f) * (Mathf.PI / 180));
+            z = radius * Mathf.Cos((-Time.frameCount / 10.0f) * (Mathf.PI / 180));
 
             frame++;
             transform.position = new Vector3(x, y, z);
