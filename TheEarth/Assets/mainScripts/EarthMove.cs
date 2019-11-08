@@ -6,6 +6,7 @@ public class EarthMove : MonoBehaviour
 {
     private float speed;
     private float radius;
+    float frame;
     float x;
     float y;
     float z;
@@ -14,7 +15,8 @@ public class EarthMove : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        speed = -0.5f;
+        frame = 0;
+        speed = -6.0f;
         radius = -800.0f;
         EndFlag = false;
     }
@@ -28,10 +30,11 @@ public class EarthMove : MonoBehaviour
         }
         if (!EndFlag)
         {
-            x = radius * Mathf.Sin(Time.time * speed);
+            x = radius * Mathf.Sin((frame / 10.0f) * (Mathf.PI / 180));
             y = 0;
-            z = radius * Mathf.Cos(Time.time * speed);
+            z = radius * Mathf.Cos((frame / 10.0f) * (Mathf.PI / 180));
 
+            frame++;
             transform.position = new Vector3(x, y, z);
         }
     }
