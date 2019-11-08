@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EarthMove : MonoBehaviour
 {
-    private float speed;
+    //private float speed;
     private float radius;
     float frame;
     float x;
@@ -16,7 +16,7 @@ public class EarthMove : MonoBehaviour
     void Start()
     {
         frame = 0;
-        speed = -6.0f;
+        //speed = -6.0f;
         radius = -800.0f;
         EndFlag = false;
     }

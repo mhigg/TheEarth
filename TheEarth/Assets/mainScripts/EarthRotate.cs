@@ -5,11 +5,13 @@ using UnityEngine;
 public class EarthRotate : MonoBehaviour
 {
     public float speed;
+   
+    Vector3 startMousePos;
+    
     bool EndFlag;
     // Start is called before the first frame update
     void Start()
     {
-        //speed = new Vector3(0.0f, 0.0f, 0.0f);
         EndFlag = false;
     }
 
@@ -24,13 +26,26 @@ public class EarthRotate : MonoBehaviour
         }
         if (!EndFlag)
         {
+            //マウス
+            float moveDistance = 0.0f;     // 正規化されたﾏｳｽの移動距離
+            if (Input.GetMouseButtonDown(1))
+            {
+                startMousePos = Input.mousePosition;
+                print("いま右ボタンが押された");
+            }
+            if (Input.GetMouseButtonUp(1))
+            {
+                moveDistance = (startMousePos.x - Input.mousePosition.x) / Screen.height;
+                print("いま右ボタンが離された");
+            }
+            float velocity = 10.0f;
+            velocity *= moveDistance;
+            speed += velocity;
+
+            // ｷｰﾎﾞｰﾄﾞ
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 speed -= 0.5f;
-            }
-            else if (speed < 0)
-            {
-                speed += 0.2f;
             }
 
             if (Input.GetKey(KeyCode.Delete))
