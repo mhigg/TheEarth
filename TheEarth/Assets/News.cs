@@ -8,9 +8,7 @@ public class News : MonoBehaviour
     private bool newsON = false;
     public Image borderImage;
     public Image graphicBorderImage;
-    public Image graphicImage;
-
-    private Sprite[] imageSprite;
+    private Image graphicImage;
 
     public GameObject reporterNameMesh = null;
     public GameObject textMesh = null;
@@ -31,13 +29,6 @@ public class News : MonoBehaviour
         reporterNameText = reporterNameMesh.GetComponent<Text>();
         textText = textMesh.GetComponent<Text>();
         
-        imageSprite[0] = Resources.Load<Sprite>("one");
-        imageSprite[1] = Resources.Load<Sprite>("two");
-        imageSprite[2] = Resources.Load<Sprite>("three");
-        imageSprite[3] = Resources.Load<Sprite>("four");
-        imageSprite[4] = Resources.Load<Sprite>("five");
-        imageSprite[5] = Resources.Load<Sprite>("six");
-
         reporterName = "";
         text = "";
         reporterNameText.text = reporterName;
@@ -45,6 +36,12 @@ public class News : MonoBehaviour
 
         reporterNameText.enabled = false;
         textText.enabled = false;
+
+        GameObject imageObject = GameObject.Find("Image2");
+        if (imageObject != null)
+        {
+            graphicImage = imageObject.GetComponent<Image>();
+        }
     }
 
     private void Update()
@@ -83,8 +80,8 @@ public class News : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+            newsGenerator(4);
             newsSwitch(true);
-            newsGenerator(0);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -100,12 +97,16 @@ public class News : MonoBehaviour
 
     private void newsGenerator(int number)
     {
-        //graphicImage.sprite = Resources.Load<Sprite>("one");
+        GameObject imageObject = GameObject.Find("Image" + (number + 1));
+        if (imageObject != null)
+        {
+            graphicImage = imageObject.GetComponent<Image>();
+        }
         switch (number)
         {
             case 0:
-                reporterName = "NASA";
-                text = "地球の自転が不明な原因で止まりました！";
+                reporterName = "";
+                text = "";
                 break;
             case 1:
                 reporterName = "";
@@ -118,6 +119,10 @@ public class News : MonoBehaviour
             case 3:
                 reporterName = "";
                 text = "";
+                break;
+            case 4:
+                reporterName = "NASA";
+                text = "地球の自転が不明な原因で止まりました!";
                 break;
             default:
                 reporterName = "メリー君";
