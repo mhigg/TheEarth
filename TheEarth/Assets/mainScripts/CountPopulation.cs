@@ -29,13 +29,13 @@ public class CountPopulation : MonoBehaviour
         int populationManipulate = Random.Range(-decreaseRange, increaseRange);
         population += populationManipulate;
 
-        if (50.0f - Mathf.Abs(EarthRotate.speed) > 15.0f)
+        if (Mathf.Abs(50.0f + EarthRotate.speed) > 15.0f)
         {
-            ManipulateEnviromentLevel( (50 - (int)Mathf.Abs(EarthRotate.speed)) * -5);
+            ManipulateEnviromentLevel( ((int)Mathf.Abs(50 + EarthRotate.speed)) * -5);
         }
-        else if (50.0f - Mathf.Abs(EarthRotate.speed)  < 15.0f)
+        else if (Mathf.Abs(50.0f + EarthRotate.speed)  < 15.0f)
         {
-            ManipulateEnviromentLevel( 180-(50 - (int)Mathf.Abs(EarthRotate.speed)) * 5);
+            ManipulateEnviromentLevel(180-((int)Mathf.Abs(50 + EarthRotate.speed)) * 5);
         }
 
 //Text spDebug = popObject.GetComponent<Text>();

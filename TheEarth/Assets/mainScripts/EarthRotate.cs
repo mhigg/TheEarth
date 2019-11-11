@@ -57,9 +57,16 @@ public class EarthRotate : MonoBehaviour
                 speed = 0.0f;
             }
 
+            // 速度減衰
+            speed += 0.2f;
+            // 限界値設定
             if (speed < -100)
             {
                 speed = -100;
+            }
+            if (speed > 0)
+            {
+                speed = 0;
             }
             // 現在の回転量へ加算する
             myTransform.Rotate(0.0f, speed, 0.0f/*, Space.World*/);
