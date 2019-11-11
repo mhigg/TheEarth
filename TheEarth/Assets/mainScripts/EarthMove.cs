@@ -10,7 +10,6 @@ public class EarthMove : MonoBehaviour
     float x;
     float y;
     float z;
-    bool EndFlag;
 
     // Use this for initialization
     void Start()
@@ -18,17 +17,12 @@ public class EarthMove : MonoBehaviour
         frame = 0;
         //speed = -6.0f;
         radius = -800.0f;
-        EndFlag = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            EndFlag = true;
-        }
-        if (!EndFlag)
+        if (!mainEndMng.EndFlag)
         {
             x = radius * Mathf.Sin((-Time.frameCount / 10.0f) * (Mathf.PI / 180));
             y = 0;

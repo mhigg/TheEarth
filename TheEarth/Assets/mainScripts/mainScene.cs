@@ -14,7 +14,7 @@ public class mainScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(mainEndMng.EndFlag)
         {
             Invoke("ChangeScene", 5.0f);
         }

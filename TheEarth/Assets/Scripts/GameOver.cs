@@ -8,17 +8,25 @@ public class GameOver : MonoBehaviour
     public GameObject player;
     private AudioSource ExplosionSE;
 
+    // test
+    bool flag;
     void Start()
     {
         AudioSource[] audioSources = GetComponents<AudioSource>();
         ExplosionSE = audioSources[0];
+        flag = false;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        
+        if (mainEndMng.EndFlag)
         {
-            GameOverNow();
+            if (!flag)
+            {
+                GameOverNow();
+                flag = true;
+            }
         }
     }
 

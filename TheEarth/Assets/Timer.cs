@@ -38,6 +38,9 @@ public class Timer : MonoBehaviour
 
     //スイッチ
     private bool timerSwitch;
+
+    // test
+    int frame;
     
     void Start()
     {
@@ -53,6 +56,8 @@ public class Timer : MonoBehaviour
         realTimer = 0.0f;
 
         timerSwitch = true;
+
+        frame = 0;
     }
     
     void Update()
@@ -82,27 +87,30 @@ public class Timer : MonoBehaviour
 
     private void dayUpdate()
     {
-        //一日が経った
-        if ((currentDay++) >= 31)
+        if (Time.frameCount % 10 == 0)
         {
-            currentDay = 1;
-            passedDay = 1;
-            if ((currentMonth++) >= 12)
+            //一日が経った
+            if ((currentDay++) >= 31)
             {
-                passedMonth = 1;
-                passedYear++;
-                currentMonth = 1;
-                currentYear++;
+                currentDay = 1;
+                passedDay = 1;
+                if ((currentMonth++) >= 12)
+                {
+                    passedMonth = 1;
+                    passedYear++;
+                    currentMonth = 1;
+                    currentYear++;
+                }
+                else
+                {
+                    passedMonth++;
+                }
             }
             else
             {
-                passedMonth++;
+                passedDay++;
             }
-        }
-        else
-        {
-            passedDay++;
-        }
+        }      
     }
 
     private void SecondUpdate()
