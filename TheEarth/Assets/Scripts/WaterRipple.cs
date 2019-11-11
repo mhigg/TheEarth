@@ -32,7 +32,7 @@ public class WaterRipple : MonoBehaviour {
 
     void Update()
     {
-        if (mainEndMng.EndFlag)
+        if (mainScene.EndFlag)
         {
             Vector2 mousePos = Input.mousePosition;
             //将mousePos转化为（0，1）区间  

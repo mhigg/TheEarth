@@ -11,13 +11,13 @@ public class CountPopulation : MonoBehaviour
     public int randomizeRange = 500;
 
     private int enviromentLevel = 0;    //環境が生物に厳しいほど低く、優しいほど高い、人口の計算し方に影響を与える
-    
+
     // Update is called once per frame
     void Update()
     {
         Text popText = popObject.GetComponent<Text>();
-        popText.text = (population / 1000000).ToString() +  "," + 
-            ((population / 1000) % 1000).ToString() + "," + 
+        popText.text = (population / 1000000).ToString() + "," +
+            ((population / 1000) % 1000).ToString() + "," +
             (population % 1000).ToString();
 
         int decreaseRange = randomizeRange;
@@ -31,11 +31,19 @@ public class CountPopulation : MonoBehaviour
 
         if (Mathf.Abs(50.0f + EarthRotate.speed) > 15.0f)
         {
-            ManipulateEnviromentLevel( ((int)Mathf.Abs(50 + EarthRotate.speed)) * -5);
+            ManipulateEnviromentLevel(((int)Mathf.Abs(50 + EarthRotate.speed)) * -5);
         }
-        else if (Mathf.Abs(50.0f + EarthRotate.speed)  < 15.0f)
+        else if (Mathf.Abs(50.0f + EarthRotate.speed) < 15.0f)
         {
-            ManipulateEnviromentLevel(180-((int)Mathf.Abs(50 + EarthRotate.speed)) * 5);
+            ManipulateEnviromentLevel(180 - ((int)Mathf.Abs(50 + EarthRotate.speed)) * 5);
+        }
+        if(population < 0)
+        {
+            population = 0;
+        }
+        if (mainScene.EndFlag)
+        {
+            population = 0;
         }
 
 //Text spDebug = popObject.GetComponent<Text>();

@@ -22,7 +22,7 @@ public class EarthMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!mainEndMng.EndFlag)
+        if (!mainScene.EndFlag)
         {
             x = radius * Mathf.Sin((-Time.frameCount / 10.0f) * (Mathf.PI / 180));
             y = 0;

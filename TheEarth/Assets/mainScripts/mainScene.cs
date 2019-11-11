@@ -5,16 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class mainScene : MonoBehaviour
 {
+    public static bool EndFlag;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(mainEndMng.EndFlag)
+        if (Input.GetMouseButtonDown(0) || CountPopulation.population <= 0)
+        {
+            EndFlag = true;
+        }
+        if (EndFlag)
         {
             Invoke("ChangeScene", 5.0f);
         }

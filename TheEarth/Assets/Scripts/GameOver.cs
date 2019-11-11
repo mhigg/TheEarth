@@ -20,7 +20,7 @@ public class GameOver : MonoBehaviour
     void Update()
     {
         
-        if (mainEndMng.EndFlag)
+        if (mainScene.EndFlag)
         {
             if (!flag)
             {
