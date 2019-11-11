@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class CountPopulation : MonoBehaviour
 {
     public GameObject popObject = null;
@@ -27,8 +28,19 @@ public class CountPopulation : MonoBehaviour
 
         int populationManipulate = Random.Range(-decreaseRange, increaseRange);
         population += populationManipulate;
-    }
 
+        if (50.0f - Mathf.Abs(EarthRotate.speed) > 15.0f)
+        {
+            ManipulateEnviromentLevel( (50 - (int)Mathf.Abs(EarthRotate.speed)) * -5);
+        }
+        else if (50.0f - Mathf.Abs(EarthRotate.speed)  < 15.0f)
+        {
+            ManipulateEnviromentLevel( 180-(50 - (int)Mathf.Abs(EarthRotate.speed)) * 5);
+        }
+
+//Text spDebug = popObject.GetComponent<Text>();
+//spDebug.text = EarthRotate.speed.ToString();
+    }
     //環境レベルを変わる
     public void ManipulateEnviromentLevel(int newLevel)
     {

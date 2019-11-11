@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EarthRotate : MonoBehaviour
 {
-    public float speed;
+   public static float speed;
    
     Vector3 startMousePos;
     
