@@ -12,7 +12,7 @@ public class News : MonoBehaviour
 
     public GameObject reporterNameMesh = null;
     public GameObject textMesh = null;
-
+    
     public float timerMax = 3.0f;
     private float timerCount = 0.0f;
 
@@ -123,6 +123,7 @@ public class News : MonoBehaviour
             case 4:
                 reporterName = "NASA";
                 text = "地球の自転が不明な原因で止まりました!";
+                CountPopulation.enviromentLevel = 10;
                 break;
             default:
                 reporterName = "メリー君";

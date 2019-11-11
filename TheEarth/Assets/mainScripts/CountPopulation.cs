@@ -10,7 +10,7 @@ public class CountPopulation : MonoBehaviour
     public static int population = 7700000;
     public int randomizeRange = 500;
 
-    private int enviromentLevel = 0;    //環境が生物に厳しいほど低く、優しいほど高い、人口の計算し方に影響を与える
+    public static int enviromentLevel = 0;    //環境が生物に厳しいほど低く、優しいほど高い、人口の計算し方に影響を与える
     private void Start()
     {
         population = 7700000;
