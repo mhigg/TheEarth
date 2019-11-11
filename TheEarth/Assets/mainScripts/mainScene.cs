@@ -10,13 +10,13 @@ public class mainScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        EndFlag = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || CountPopulation.population <= 0)
+        if (Input.GetMouseButtonDown(0) /*|| CountPopulation.population <= 0*/)
         {
             EndFlag = true;
         }
