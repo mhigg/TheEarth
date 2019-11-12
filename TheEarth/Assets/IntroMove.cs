@@ -19,7 +19,7 @@ public class IntroMove : MonoBehaviour
         // 85秒経過または左ｸﾘｯｸ
         if((moveCnt > (60*85))||(Input.GetMouseButtonDown(0)))
         {
-            SceneManager.LoadScene("mainScene");    // ｹﾞｰﾑｼｰﾝに移行
+            SceneManager.LoadScene("HowToScene");    // 操作説明ｼｰﾝに移行
         }
         moveCnt++;
     }

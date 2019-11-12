@@ -23,15 +23,13 @@ public class EarthRotate : MonoBehaviour
         {
             //マウス
             float moveDistance = 0.0f;     // 正規化されたﾏｳｽの移動距離
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0))
             {
                 startMousePos = Input.mousePosition;
-                print("いま右ボタンが押された");
             }
-            if (Input.GetMouseButtonUp(1))
+            if (Input.GetMouseButtonUp(0))
             {
                 moveDistance = (startMousePos.x - Input.mousePosition.x) / Screen.height;
-                print("いま右ボタンが離された");
             }
             float velocity = 10.0f;
             velocity *= moveDistance;
