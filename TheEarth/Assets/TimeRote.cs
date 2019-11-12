@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TimeRote : MonoBehaviour
 {
     /* public */
-    public int time;                     // 制限時間
+    public static int time;                     // 制限時間
     public Vector3 pos;                // 座標
     public GameObject Sun;
     public RectTransform earthTimer;    // 秒針の画像
@@ -18,7 +18,6 @@ public class TimeRote : MonoBehaviour
     private Vector2 vec;                // ﾀｲﾏｰ軸から秒針のﾍﾞｸﾄﾙ
     private float length;
     private float lange;
-    bool EndFlag;   // static
 
     // Start is called before the first frame update
     void Start()
@@ -29,18 +28,14 @@ public class TimeRote : MonoBehaviour
         earthTimer.localPosition = pos;
         //pi = 3.141592654f;
         length = 100;
-        EndFlag = false;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            EndFlag = true;
-        }
-        if (!EndFlag)
+        
+        if (!mainScene.EndFlag)
         {
             lange = Mathf.Sqrt(Mathf.Pow((pos.x - Sun.transform.position.x), 2) + Mathf.Pow((pos.y - Sun.transform.position.y), 2));
             vec = new Vector2(earthTimer.position.x - /*575*/Sun.transform.position.x, earthTimer.position.y - /*660*/Sun.transform.position.y);
