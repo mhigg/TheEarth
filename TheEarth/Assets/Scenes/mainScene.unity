@@ -1149,6 +1149,8 @@ MonoBehaviour:
   reporterNameMesh: {fileID: 519682842}
   textMesh: {fileID: 1164378555}
   timerMax: 3
+  morse: {fileID: 0}
+  audioMorse: {fileID: 0}
 --- !u!1 &861140553
 GameObject:
   m_ObjectHideFlags: 0
