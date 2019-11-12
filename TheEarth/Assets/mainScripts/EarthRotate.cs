@@ -8,11 +8,10 @@ public class EarthRotate : MonoBehaviour
    
     Vector3 startMousePos;
     
-    bool EndFlag;
     // Start is called before the first frame update
     void Start()
     {
-        EndFlag = false;
+        speed = 0;
     }
 
     // Update is called once per frame
@@ -20,11 +19,7 @@ public class EarthRotate : MonoBehaviour
     {
         // transformを取得
         Transform myTransform = this.transform;
-        if(Input.GetMouseButtonDown(0))
-        {
-            EndFlag = true;
-        }
-        if (!EndFlag)
+        if (!mainScene.EndFlag)
         {
             //マウス
             float moveDistance = 0.0f;     // 正規化されたﾏｳｽの移動距離
