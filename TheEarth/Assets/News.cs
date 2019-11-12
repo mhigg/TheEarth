@@ -25,6 +25,9 @@ public class News : MonoBehaviour
     private float newsImageShow;
 
     private int msgCnt; // ﾒｯｾｰｼﾞ表示用ｶｳﾝﾄ
+
+    public AudioClip morse;
+    public AudioSource audioMorse;
     private void Start()
     {
         reporterNameText = reporterNameMesh.GetComponent<Text>();
@@ -45,6 +48,7 @@ public class News : MonoBehaviour
         }
 
         msgCnt = 0;
+        audioMorse = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -74,24 +78,7 @@ public class News : MonoBehaviour
             {
                 newsImageShow -= 0.2f;
             }
-        }
 
-        borderImage.fillAmount = newsImageShow;
-        graphicBorderImage.fillAmount = newsImageShow;
-        graphicImage.fillAmount = newsImageShow;
-
-
-        //if (Input.GetKey(KeyCode.LeftArrow))
-        //{
-        //    newsGenerator(Random.Range(0,4));
-        //    newsSwitch(true);
-        //}
-        //if (Input.GetKey(KeyCode.RightArrow))
-        //{
-        //    newsSwitch(false);
-        //}
-        if(!newsON)
-        {
             if (msgCnt % (60 * 5) == 0)
             {
                 if (EarthRotate.speed >= 0)
@@ -121,13 +108,21 @@ public class News : MonoBehaviour
                 newsSwitch(true);
             }
         }
-        else
-        {
-            if (msgCnt % (60 * 4) == 0)
-            {
-                newsSwitch(false);
-            }
-        }
+
+        borderImage.fillAmount = newsImageShow;
+        graphicBorderImage.fillAmount = newsImageShow;
+        graphicImage.fillAmount = newsImageShow;
+
+
+        //if (Input.GetKey(KeyCode.LeftArrow))
+        //{
+        //    newsGenerator(Random.Range(0,4));
+        //    newsSwitch(true);
+        //}
+        //if (Input.GetKey(KeyCode.RightArrow))
+        //{
+        //    newsSwitch(false);
+        //}
         msgCnt++;
     }
 
