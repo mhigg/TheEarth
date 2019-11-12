@@ -2538,7 +2538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde439cbcd473b348bd34da651a4880f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0
   pos: {x: 0, y: 0, z: 0}
   Sun: {fileID: 1871654611}
   earthTimer: {fileID: 1978737716}

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CountPopulation : MonoBehaviour
 {
     public GameObject popObject = null;
-    public static int population;
+    public static int population = 7700000;
     public static int increceLevel;
     public static int DecreaceLevel;
     public int randomizeRange;
