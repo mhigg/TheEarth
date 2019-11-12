@@ -24,6 +24,7 @@ public class News : MonoBehaviour
 
     private float newsImageShow;
 
+    private int msgCnt; // ﾒｯｾｰｼﾞ表示用ｶｳﾝﾄ
     private void Start()
     {
         reporterNameText = reporterNameMesh.GetComponent<Text>();
@@ -42,6 +43,8 @@ public class News : MonoBehaviour
         {
             graphicImage = imageObject.GetComponent<Image>();
         }
+
+        msgCnt = 0;
     }
 
     private void Update()
@@ -78,15 +81,54 @@ public class News : MonoBehaviour
         graphicImage.fillAmount = newsImageShow;
 
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        //if (Input.GetKey(KeyCode.LeftArrow))
+        //{
+        //    newsGenerator(Random.Range(0,4));
+        //    newsSwitch(true);
+        //}
+        //if (Input.GetKey(KeyCode.RightArrow))
+        //{
+        //    newsSwitch(false);
+        //}
+        if(!newsON)
         {
-            newsGenerator(4);
-            newsSwitch(true);
+            if (msgCnt % (60 * 5) == 0)
+            {
+                if (EarthRotate.speed >= 0)
+                {
+                    newsGenerator(4);
+                    newsSwitch(true);
+                }
+                else if (Mathf.Abs(50.0f + EarthRotate.speed) < 15.0f)
+                {
+                    newsGenerator(1);
+                    newsSwitch(true);
+                }
+                else if (Mathf.Abs(50.0f + EarthRotate.speed) > 15.0f)
+                {
+                    newsGenerator(0);
+                    newsSwitch(true);
+                }
+            }
+            else if (msgCnt % (60 * 7) == 0)
+            {
+                newsGenerator(2);
+                newsSwitch(true);
+            }
+            else if (msgCnt % (60 * 11) == 0)
+            {
+                newsGenerator(3);
+                newsSwitch(true);
+            }
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        else
         {
-            newsSwitch(false);
+            if (msgCnt % (60 * 4) == 0)
+            {
+                newsSwitch(false);
+            }
         }
+        msgCnt++;
     }
 
     public void newsSwitch(bool switchi)
@@ -105,24 +147,24 @@ public class News : MonoBehaviour
         switch (number)
         {
             case 0:
-                reporterName = "";
-                text = "";
+                reporterName = "山田";
+                text = "アカンこのままじゃ地球が滅亡ぅ！";
                 break;
             case 1:
-                reporterName = "";
-                text = "";
+                reporterName = "六号";
+                text = "三島殿、今日は快適でござるよ！";
                 break;
             case 2:
-                reporterName = "";
-                text = "";
+                reporterName = "テラ";
+                text = "ウイイイイイイイッッッッス";
                 break;
             case 3:
-                reporterName = "";
-                text = "";
+                reporterName = "M@STER";
+                text = "ちくわ大明神";
                 break;
             case 4:
                 reporterName = "NASA";
-                text = "地球の自転が不明な原因で止まりました!";
+                text = "緊急事態！地球の自転が停止しました！";
                 CountPopulation.enviromentLevel = 10;
                 break;
             default:
