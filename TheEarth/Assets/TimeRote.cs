@@ -42,8 +42,8 @@ public class TimeRote : MonoBehaviour
             earthTimer.transform.position = pos;
             theta = Mathf.Atan2(vec.y, vec.x);
 
-            float vx = 1.0f / 16.0f * Mathf.Cos(theta - Mathf.PI / 2);//速度を分配(X方向)
-            float vy = 1.0f / 16.0f * Mathf.Sin(theta - Mathf.PI / 2);//速度を分配(Y方向)
+            float vx = (1.0f / 12.0f) * Mathf.Cos(theta - Mathf.PI / 2);//速度を分配(X方向)
+            float vy = (1.0f / 12.0f) * Mathf.Sin(theta - Mathf.PI / 2);//速度を分配(Y方向)
 
             if (time <= 0)
             {
