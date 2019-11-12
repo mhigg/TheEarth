@@ -16,7 +16,7 @@ public class CountPopulation : MonoBehaviour
     private void Start()
     {
         increceLevel = 3;
-        DecreaceLevel = 5;
+        DecreaceLevel = 3;
         population = 7700000;
         randomizeRange = 500;
     }

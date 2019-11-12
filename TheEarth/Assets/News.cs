@@ -152,10 +152,14 @@ public class News : MonoBehaviour
             case 2:
                 reporterName = "テラ";
                 text = "ウイイイイイイイッッッッス";
+                CountPopulation.increceLevel = 4;
+                CountPopulation.DecreaceLevel = 2;
                 break;
             case 3:
                 reporterName = "M@STER";
                 text = "ちくわ大明神";
+                CountPopulation.increceLevel = 0;
+                CountPopulation.DecreaceLevel = 5;
                 break;
             case 4:
                 reporterName = "NASA";
