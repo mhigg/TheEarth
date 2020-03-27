@@ -28,7 +28,7 @@ public class EarthMove : MonoBehaviour
             y = 0;
             z = radius * Mathf.Cos((-frame / 10.0f) * (Mathf.PI / 180));
 
-            frame++;
+            frame += Time.deltaTime;
             transform.position = new Vector3(x, y, z);
         }
     }

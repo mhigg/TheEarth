@@ -13,6 +13,8 @@ public class mainScene : MonoBehaviour
     {
         EndFlag = false;
         clearFlag = false;
+
+        CountPopulation.population = 7700000;
     }
 
     // Update is called once per frame
